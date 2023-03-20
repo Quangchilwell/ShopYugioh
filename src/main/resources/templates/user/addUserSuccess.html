@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:if="${user} != null">Them moi thanh cong</h1>
+	
+	<h1 th:if="${user} == null">Them moi that bai</h1>
+	
+	<button>
+		<a th:href="@{/admin/userList}">Ve danh sach khach hang</a>
+	</button>
+</body>
+</html>

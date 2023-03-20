@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Danh sach don dat hang</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="@{/css/list.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+	<div th:replace="common/headerAdmin:: headerAdmin"></div>
+	
+	<div class="container">
+        <div class="table-title">
+            <h1>Danh sách đơn đặt hàng</h1>
+        </div>
+        
+		<table class="table table-bordered">
+			<tr>
+				<th class="th-title bg-primary">Mã đặt hàng</th>
+				<th class="th-title bg-primary">Người đặt hàng</th>
+				<th class="th-title bg-primary">Tổng tiền</th>
+				<th class="th-title bg-primary">Tình trạng</th>
+				<th class="th-title bg-primary">Lựa chọn</th>
+			</tr>
+			
+			<tr th:each="order: ${orderDTOs}">
+				<td class="info" th:text="${order.id}"></td>
+				<td class="info" th:text="${order.userDTO.name}"></td>
+				<td> <span th:text="${order.totalPrice}"></span>00 VNĐ </td> 
+				<td class="info" th:text="${order.status}"></td>
+				<td class="info">
+					<a class="option-from-user" th:href="@{/admin/inforOrder/__${order.id}__}">Thông tin</a> |
+					<a th:if="${order.status} == Đang_xử_lí" class="option-from-user" th:href="@{/admin/acceptOrder(id=${order.id})}">Chấp nhận đơn</a> |
+					<a class="option-from-user" th:href="@{/admin/completeOrder(id=${order.id})}">Hoàn thành đơn</a> | 
+				</td>
+			</tr>
+		</table>
+		
+		<button>
+			<a th:href="@{/home}">Về trang bán hàng</a>
+		</button>
+     </div>
+</body>
+</html>

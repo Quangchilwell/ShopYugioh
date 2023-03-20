@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thông tin sản phẩm</h1>
+	
+	<table>
+		<tr>
+			<th>Mã sản phẩm</th>
+			<td th:text="${product.id}"></td>
+		</tr>
+		
+		<tr>
+			<th>Tên sản phẩm</th>
+			<td th:text="${product.name}"></td>
+		</tr>
+		
+		<tr>
+			<th>Loại danh mục</th>
+			<td th:text="${product.categoryDTO.name}"></td>
+		</tr>
+		
+		<tr>
+			<th>Giá tiền</th>
+			<td th:text="${product.price}"></td>
+		</tr>
+		
+		<tr>
+			<th>Số lượng</th>
+			<td th:text="${product.quantity}"></td>
+		</tr>
+		
+		<tr>
+			<th>Mô tả sản phẩm</th>
+			<td th:text="${product.description}"></td>
+		</tr>
+		
+		<tr>
+			<th>Hình ảnh</th>
+			<img th:src="@{/img/imgProduct/__${product.imageUrl}__}" />
+		</tr>
+	</table>
+</body>
+</html>

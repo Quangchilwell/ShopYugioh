@@ -1,0 +1,78 @@
+html {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+.container{
+  margin-top: 200px;
+}
+
+/* .table, th, td{
+    text-align: center;
+    border: 1px solid;
+    border-color: red;
+} */
+
+.th-title{
+    text-align: center;
+}
+
+.table-title{
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.226);
+    padding: 14px 0;
+}
+
+.table-title h1{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+    margin: 0;
+}
+
+.btn-option{
+    display: flex;
+}
+
+.btn-add{
+    display: flex;
+    background-color: #337ab7;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 100px;
+    height: 40px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.btn-add:hover{
+    color: white;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.option-from-user-group{
+    display: flex;
+    justify-content: center;
+}
+
+.option-from-user{
+    margin-right: 10px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    color: white;
+    background-color: #337ab7;
+}
+
+.option-from-user:hover{
+    opacity: 0.9;
+    color: white;
+    text-decoration: none;
+}

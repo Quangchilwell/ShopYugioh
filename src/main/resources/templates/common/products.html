@@ -1,0 +1,31 @@
+<div class="product" th:fragment="products">
+	<div class="product-header">
+		<p class="product-header-title">NỔI BẬT</p>
+	</div>
+	<div class="grid_row">
+		<div th:each="pro: ${products}" class="grid_colomn-2-4">
+			<a th:href="@{/home/seeProduct(idPro=${pro.id})}" class="product-body"> 
+				<img th:src="@{/img/imgProduct/__${pro.imageUrl}__}" alt="No img"class="product-body-img">
+				<p class="product-body-name" th:text="${pro.name}"></p>
+				<div class="product-body-price-appri">
+					<p class="product-body-price">
+						<span class="product-body-price" th:text="${pro.price}"></span>00 VNĐ
+					</p>
+					<div class="product-body-appri">
+						<i class="product-body-appri-icon fa-solid fa-star"></i> <i
+							class="product-body-appri-icon fa-solid fa-star"></i> <i
+							class="product-body-appri-icon fa-solid fa-star"></i> <i
+							class="product-body-appri-icon fa-solid fa-star"></i> <i
+							class="product-body-appri-icon fa-solid fa-star"></i>
+					</div>
+				</div>
+
+				<form th:action="@{/home/addToCart(idPro=${pro.id})}" method="post" class="product-body-buy">
+					<button type="submit" class="product-body-buy-button">Thêm
+						vào giỏ</button>
+				</form>
+			</a>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Xác nhận xóa sản phẩm</h1>
+	
+	<p>Bạn có chắc muốn xóa sản phẩm
+		<span th:text="${product.name}"></span> với mã là
+		<span th:text="${product.id}"></span> ?
+	</p>
+	
+	<button>
+		<a th:href="@{/admin/deleteProductSuccess(id=${product.id})}">Có</a>
+	</button>
+	
+	<button>
+		<a th:href="@{/admin/productList}">Không</a>
+	</button>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" th:href="@{css/fonts/fontawesome-free-6.0.0-web/css/all.min.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400;500;700;900&display=swap">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+	<div class="yugioh-web">
+		<div class="grid">
+			<header th:replace="common/header :: header"></header>
+
+			<div id="slider"></div>
+	
+			<div id="body">
+				<div class="yugioh-container">
+					<div class="grid">
+						<div class="grid_row">
+							<div th:replace="common/category :: category"></div>
+
+							<div class="grid_colomn-10">
+								<div th:replace="common/products :: products"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<footer th:replace="common/footer :: footer"></footer>
+			
+			<script th:src="@{/js/yugioh.js}"></script>
+		</div>
+	</div>
+</body>
+</html>

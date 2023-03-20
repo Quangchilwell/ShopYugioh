@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Danh sách sản phẩm có danh mục <span th:text="${category.name}"></span></h1>
+
+	<table>
+		<tr>
+			<th>Mã SP</th>
+			<th>Tên SP</th>
+			<th>Giá tiền</th>
+			<th>Loại danh mục</th>
+			<th>Số lượng hiện có</th>
+			<th>Lựa chọn</th>
+		</tr>
+		
+		<tr th:each="pro: ${productDTOs}">
+			<td th:text="${pro.id}"></td>
+			<td th:text="${pro.name}"></td>
+			<td th:text="${pro.price}"></td>
+			<td th:text="${pro.categoryDTO.name}"></td>
+			<td th:text="${pro.quantity}"></td>
+			<td>
+				<a th:href="@{/admin/updateProduct/__${pro.id}__}">Sửa</a>
+				<a th:href="@{/admin/deleteProduct/__${pro.id}__}">Xóa</a>
+				<a th:href="@{/admin/inforProduct/__${pro.id}__}">Thông tin</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

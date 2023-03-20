@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/product.css}">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="grid">
+	
+		<header th:replace="common/header :: header"></header>
+	
+		<div class="app container">
+	        <div class="product">
+	            <div class="row">
+	                <div class="col-sm-3">
+	                    <img class="product-img-total img-thumbnail" src="https://i7.xem-truyen.com/manga/16/16751/0000cover22.thumb_500x.jpg" alt="">
+	                </div>
+	    
+	                <div class="col-sm-5">
+	                    <img class="img-product-represent img-rounded" th:src="@{/img/imgProduct/__${product.imageUrl}__}" alt="No img">
+	                    <ul class="img-product-list">
+	                        <li>
+	                            <img src="https://www.m2duelstore.com/image/cache/catalog/DSC00899_COPY-200x200.JPG" alt="" class="img-product-item img-rounded">
+	                        </li>
+	    
+	                        <li>
+	                            <img src="https://www.m2duelstore.com/image/cache/catalog/DSC00907_COPY-200x200.JPG" alt="" class="img-product-item img-rounded">
+	                        </li>
+	    
+	                        <li>
+	                            <img src="https://www.m2duelstore.com/image/cache/catalog/DSC00140%20Copy-200x200.jpg" alt="" class="img-product-item img-rounded">
+	                        </li>
+	                    </ul>
+	                </div>
+	    
+	                <div class="col-sm-4">
+	                    <div class="product-infor">
+	                        <h3 class="product-name" th:text="${product.name}"></h3>
+	        
+	                        <div class="product-evaluation">
+	                            <div class="product-stars">
+	                                <i class="product-star-icon fa-solid fa-star"></i>
+	                                <i class="product-star-icon fa-solid fa-star"></i>
+	                                <i class="product-star-icon fa-solid fa-star"></i>
+	                                <i class="product-star-icon fa-solid fa-star"></i>
+	                                <i class="product-star-icon fa-solid fa-star"></i>
+	                            </div>
+	                            <p class="product-quantity-comment"> <span th:text="${commentNumber}"></span> Bình luận</p>
+	                        </div>
+	    
+	                        <div class="product-infor-details">
+	                            <p class="product-infor-manafactor">Nhà sản xuất: <span>Ultra PRO</span></p>
+	                            <p class="product-infor-lineOf">Dòng sản phẩm: <span></span></p>
+	                            <p class="product-infor-status">Tình trạng sản phẩm trong kho: <span>Vẫn còn hàng</span></p>
+	    
+	                            <div class="product-infor-price">
+	                                <p class="product-infor-price-old"></p>
+	                                <p class="product-infor-price-new"> <span th:text="${product.price}"></span>00 VNĐ</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	    
+	                    <div class="product-buy">
+	                        <p class="product-buy-title">Số lượng</p>
+	                        <form class="product-buy-form" th:action="@{/home/addToCartWithQuantity(idPro=${product.id})}" method="post">
+	                            <input class="product-buy-quantity-input" type="text" name="quantity" value="1">
+	                            <button class="product-buy-btn" type="submit">Thêm vào giỏ</button>
+	                        </form>
+	                    </div>
+	                    <div class="product-buy-option">
+	                        <button class="product-buy-option-favorite" type="button">Yêu thích</button>
+	                        <button class="product-buy-option-compare" type="button">So sánh</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	
+	        <!-- Thong tin san pham va danh gia -->
+	        <div class="product-infor">
+	            <div id="accordion" class="product-infor-wrap">
+	                <div class="panel product-infor-btn-wrap">
+	                    <a class="product-infor-btn" data-toggle="collapse" data-parent="#accordion" href="#description">Mô tả</a>
+	                    <div id="description" class="product-infor-description collapse in">
+	                        <h2 class="product-infor-description-name" th:text="${product.name}"></h2>
+	                        <h5 class="product-infor-description-notice"></h5>
+	                        <p class="product-infor-description-content" th:text="${product.description}"></p>
+	                    </div>
+	                </div>   
+	                
+	                <div class="panel product-infor-btn-wrap">
+	                    <a class="product-infor-btn" data-toggle="collapse" data-parent="#accordion" href="#evaluation">Đánh giá</a>
+	                    <div id="evaluation" class="product-infor-evaluation collapse">
+	                        <p th:if="${countNumber} == 0" class="product-infor-evaluation-heading">Không có đánh giá cho sản phẩm này.</p>
+	                        <h3 class="product-infor-evaluation-title">Gửi bình luận</h3>
+	                        <p class="product-infor-evaluation-notice">Đăng nhập để thực hiện bình luận</p>
+	                        <p class="product-infor-evaluation-quantity">  
+	                            <span th:text="${commentNumber}"></span> bình luận
+	                        </p>
+	        
+	                        <div th:if="${user} != null" class="product-infor-evaluation-comment">
+	                            <img th:src="@{/img/avatarUser/__${user.avatar}__}" alt="" class="user-comment-img">
+	                            <form class="product-infor-evaluation-comment-form" th:action="@{/writeComment}" method="post">
+	                                <input name="content" class="product-infor-evaluation-comment-input" placeholder="Viết bình luận">
+	                                </input>  
+	                                <input class="btn-comment" type="submit" value="Gửi">                     
+	                            </form>
+	                        </div>
+	                        
+	                        <div th:if="${user} == null" class="product-infor-evaluation-comment">
+	                            <p>Bạn chưa đăng nhập, hãy đăng nhập để bình luận sản phẩm nhé!</p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	
+	        <!-- Binh luan tu khach hang -->
+	        <div class="customer-comment container">
+	            <h3 class="customer-comment-heading">Đánh Giá - Nhận Xét Từ Khách Hàng</h3>
+				
+				<div th:if="${comments} == null">
+					<p style="color: black;">Chưa có bình luận cho sản phẩm này</p>
+				</div>
+				
+	            <ul th:if="${comments} != null" class="customer-comment-list">
+	                <li th:each="comment: ${comments}" class="customer-comment-item">                 
+	                    <div class="customer-comment-infor">
+	                        <img th:src="@{/img/avatarUser/__${comment.userDTO.avatar}__}" alt="" class="customer-comment-avatar">
+	                        <p class="customer-comment-username" th:text="${comment.userDTO.name}"></p>
+	                    </div>
+	        
+	                    <div class="customer-comment-content">
+	                        <p th:text="${comment.content}"></p>
+	                        <a href="">Thich</a>
+	                    </div>         
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+
+	<script th:src="@{/js/yugioh.js}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

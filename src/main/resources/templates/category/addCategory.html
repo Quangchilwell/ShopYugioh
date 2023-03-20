@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thêm mới danh mục</h1>
+
+	<form th:action="@{/admin/addCategory}" th:object="${category}" method="post">
+	
+		<p>Tên danh mục</p>
+		<input type="text" th:field="*{name}" />
+		
+		<input type="submit" value="Thêm danh mục">
+		
+		<button>
+			<a th:href="@{/admin/categoryList}">Quay lại</a>
+		</button>
+	</form>
+</body>
+</html>

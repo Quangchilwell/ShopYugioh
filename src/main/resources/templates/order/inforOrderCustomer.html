@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+	<div class="container">
+        <div class="table-title">
+            <h1>Danh sách đơn đặt hàng của bạn</h1>
+        </div>
+        
+		<table class="table table-bordered">
+			<tr>
+				<th class="th-title bg-primary">Mã đặt hàng</th>
+				<th class="th-title bg-primary">Người đặt hàng</th>
+				<th class="th-title bg-primary">Tổng tiền</th>
+				<th class="th-title bg-primary">Tình trạng</th>
+				<th class="th-title bg-primary">Lựa chọn</th>
+			</tr>
+			
+			<tr th:each="order: ${orderDTOs}">
+				<td class="info" th:text="${order.id}"></td>
+				<td class="info" th:text="${order.userDTO.name}"></td>
+				<td class="info"> <span th:text="${order.totalPrice}"></span>00 VNĐ </td> 
+				<td class="info" th:text="${order.status}"></td>
+				<td class="info">
+					<a class="option-from-user" th:href="@{/deleteOrderFromCustomer(id=${order.id})}" >Hủy đơn hàng</a>
+				</td>
+			</tr>
+		</table>
+	
+		<button>
+			<a th:href="@{/home}">Về trang bán hàng</a>
+		</button>
+     </div>
+</body>
+</html>

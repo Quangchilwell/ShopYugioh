@@ -1,0 +1,143 @@
+
+<header id="header" th:fagment="header">
+	<div class="header-container">
+		<div class="header-container-1">
+			<div class="header-logo">
+				<img th:src="@{/img/logo/logoP.png}" alt="NO img"
+					class="header-logo-img">
+			</div>
+			<div class="header-navbar">
+				<ul class="navbar-list">
+					<li class="navbar-item"><a th:href="@{/home}"
+						class="navbar-item-link">TRANG CHỦ</a></li>
+					<li class="navbar-item"><a href="" class="navbar-item-link">TIN
+							TỨC</a></li>
+					<li class="navbar-item"><a href="" class="navbar-item-link">GIỚI
+							THIỆU</a></li>
+					<li class="navbar-item"><a href="" class="navbar-item-link">KHUYẾN
+							MÃI</a></li>
+					<li class="navbar-item"><a href="" class="navbar-item-link">CHANNEL</a>
+					</li>
+					<li class="navbar-item"><a href="" class="navbar-item-link">LIÊN
+							HỆ</a></li>
+							
+					<li th:if="${user} != null" class="navbar-item"><a th:if="${user.role} == ROLE_ADMIN" th:href="@{/admin/userList}" class="navbar-item-link">QUẢN LÍ</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="header-container-2">
+			<div th:if="${user} != null" class="header-user">
+				<img
+					th:src="@{/img/avatarUser/__${user.avatar}__}"
+					alt="" class="header-user-img">
+				<p class="header-user-title">
+					Xin chào <span class="header-user-name" th:text="${user.name}"></span>
+				</p>
+				<ul class="header-user-select-list">
+					<li class="header-user-select-item"><a th:href="@{/home/inforOfCustomer(id=${user.id})}"
+						class="header-user-select-item-link">Thông tin của bạn</a></li>
+					<li class="header-user-select-item"><a th:href="@{/logout}"
+						class="header-user-select-item-link">Đăng xuất</a></li>
+					<li class="header-user-select-item">
+						<a th:href="@{/inforOrderCustomer(idUser=${user.id})}"
+						class="header-user-select-item-link">Xem đơn hàng của bạn</a></li>
+				</ul>
+			</div>
+			
+			<!-- Ko dang nhap -->
+			<div th:if="${user} == null" class="header-login">
+				<a th:href="@{/login}" class="header-login-link">Đăng nhập</a> <i
+					class="fa-solid fa-user"></i>
+			</div>
+			
+			<div class="header-search">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<form th:action="@{/home/searchProduct}" method="get"
+					class="header-search-input-form">
+					<input class="header-search-input" type="text"
+						placeholder="Tìm kiếm sản phẩm" name="infor"> <input
+						type="submit" value="Tim kiem">
+				</form>
+			</div>
+			
+			<div class="header-cart-link">
+				<div th:if="${billDTO} == null" class="header-cart">
+					<i class="header-cart-icon fa-solid fa-cart-shopping"></i>
+					<div class="header-cart-content-wrap">
+						<p class="header-cart-content">
+							<span class="header-cart-quanPro">0</span> sản phẩm
+						</p>
+						-
+						<p class="header-cart-content">
+							<span class="header-cart-price">0</span> VNĐ
+						</p>
+					</div>
+				</div>
+				
+				<div th:if="${billDTO} != null" class="header-cart">
+					<i class="header-cart-icon fa-solid fa-cart-shopping"></i>
+					<div class="header-cart-content-wrap">
+						<p class="header-cart-content">
+							<span class="header-cart-quanPro" th:text="${billDTO.totalProduct}"></span> sản phẩm
+						</p>
+						-
+						<p class="header-cart-content">
+							<span class="header-cart-price" th:text="${billDTO.totalPrice}"></span>00 VNĐ
+						</p>
+					</div>
+				</div>
+	
+				<!-- Gio hang ton tai -->
+				<div th:if="${billDTO} != null" class="cart-product">
+					<div th:each="item: ${billItems}" class="cart-product-infor">
+						<img
+							th:src="@{/img/imgProduct/__${item.productDTO.imageUrl}__}"
+							alt="" class="cart-product-infor-img" />
+						<p class="cart-product-infor-name" th:text="${item.productDTO.name}"></p>
+						<p class="cart-product-infor-quantity">x <span th:text="${item.quantity}"></span></p>
+						<p class="cart-product-infor-price"> <span th:text="${item.unitPrice}"></span>00 VNĐ</p>
+					</div>
+					
+					<table class="cart-product-price">
+						<tr class="cart-product-price-table-row">
+							<td class="cart-product-price-table-title">Thành tiền:</td>
+							<td> <span th:text="${billDTO.totalPrice}"></span>00 VNĐ</td>
+						</tr>
+
+						<tr class="cart-product-price-table-row">
+							<td class="cart-product-price-table-title">Tổng cộng:</td>
+							<td> <span th:text="${billDTO.totalPrice}"></span>00 VNĐ</td>
+						</tr>
+					</table>
+
+					<div class="cart-product-go">
+						<button class="cart-product-go-button">
+							<a th:href="@{/home/seeCart(idBill=${billDTO.id})}" class="cart-product-go-link">Xem giỏ hàng</a>
+						</button>
+						<button class="cart-product-go-button">
+							<a th:href="@{/payment(idBill=${billDTO.id})}" class="cart-product-go-link">Thanh toán</a>
+						</button>
+					</div>
+				</div>
+				
+				<!-- Gio hang khong ton tai -->
+				<div th:if="${billDTO} == null" class="cart-product">
+					<table class="cart-product-price">
+						<tr class="cart-product-price-table-row">
+							<td class="cart-product-price-table-title">Thành tiền</td>
+							<td>0 VNĐ</td>
+						</tr>
+
+						<tr class="cart-product-price-table-row">
+							<td class="cart-product-price-table-title">Tổng cộng</td>
+							<td>0 VNĐ</td>
+						</tr>
+					</table>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

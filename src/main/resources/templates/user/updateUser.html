@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Them nguoi dung</title>
+	<link rel="stylesheet" th:href="@{/css/form.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<h1>Cập nhật người dùng</h1>
+	
+	<div class="container main">
+		<form th:action="@{/admin/updateUser}" method="post" th:object="${user}" enctype="multipart/form-data"  class="form" id="form-add-user">
+			<h3 class="heading">Cập nhật người dùng</h3>
+        	<div class="spacer"></div>
+        	
+        	<input th:field="*{id}" type="hidden" />
+        	
+        	<div class="form-group">
+				<label for="fullname" class="form-label">Tên đầy đủ</label>
+				<input id="fullname" type="text" th:field="*{name}" placeholder="VD: Minh Quang" class="form-control" />
+				<span class="form-message"></span>        	
+        	</div>
+			
+			<div class="form-group">
+				<label for="phone" class="form-label">Số điện thoại</label>
+				<input id="phone" type="text" th:field="*{phone}" placeholder="VD: 0974******" class="form-control" />
+				<span class="form-message"></span>			
+			</div>
+			
+			<div class="form-group">
+				<label for="username" class="form-label">Tài khoản</label>
+				<input id="username" type="text" th:field="*{username}" placeholder="VD: quang1234" class="form-control" />
+				<span class="form-message"></span>			
+			</div>
+			
+			<div class="form-group">
+				<label for="password" class="form-label">Mật khẩu</label>
+				<input id="password" type="text" th:field="*{password}" placeholder="Nhập mật khẩu" class="form-control" />
+				<span class="form-message"></span>			
+			</div>
+			
+			<div class="form-group">
+			<label for="gender" class="form-label">Giới tính</label>
+				<div class="select-gender">
+					<input type="radio" th:field="*{gender}" value="Nam" class="form-control form-radio" checked/>Nam
+					<input type="radio" th:field="*{gender}" value="Nữ" class="form-control form-radio"/>Nữ
+					<input type="radio" th:field="*{gender}" value="Khác" class="form-control form-radio"/>Khác		
+				</div>			
+			</div>
+			
+			<div class="form-group">
+				<label for="role" class="form-label">Vai trò</label>
+				<div class="select-gender">
+					<input type="radio" th:field="*{role}" value="ROLE_ADMIN" class="form-control form-radio" />ADMIN
+					<input type="radio" th:field="*{role}" value="ROLE_USER" class="form-control form-radio" checked />USER		
+				</div>			
+			</div>
+			
+			<input type="file" th:field="*{file}">
+			
+			<button type="submit" class="form-submit">Cập nhật</button>
+		</form>
+	</div>
+
+   <script th:src="@{/js/validation/userValidation}"></script>
+</body>
+</html>

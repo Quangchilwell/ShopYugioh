@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+	<div th:replace="common/headerAdmin:: headerAdmin"></div>
+
+	<h1>Danh sách danh mục</h1>
+	
+	<table>
+		<tr>
+			<th>Mã danh mục</th>
+			<th>Loại danh mục</th>
+			<th>Lựa chọn</th>
+		</tr>
+		
+		<tr th:each="cate: ${categoryDTOs}">
+			<td th:text=${cate.idCate}></td>
+			<td th:text=${cate.name}></td>
+			<td>
+				<a th:href="@{/admin/updateCategory/__${cate.idCate}__}">Sửa</a>
+				<a th:href="@{/admin/deleteCategory/__${cate.idCate}__}">Xóa</a>
+				<a th:href="@{/admin/inforCategory/__${cate.idCate}__}">Thông tin</a>
+				<a th:href="@{/admin/getProductByCategory/__${cate.idCate}__}">Sản phẩm trong danh mục</a>
+			</td>
+		</tr>
+	</table>
+	
+	<button>
+		<a th:href="@{/admin/addCategory}">Thêm mới</a>
+	</button>
+</body>
+</html>

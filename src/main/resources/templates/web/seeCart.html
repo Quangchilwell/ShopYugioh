@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Xem gio hang</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		
+		<h1>Giỏ hàng của <span th:text="${userDTO.name}"></span> </h1>
+		
+		<table class="table table-bordered">
+			<tr>
+				<th class="th-title bg-primary">Mã vật phẩm</th>
+				<th class="th-title bg-primary">Tên sản phẩm</th>
+				<th class="th-title bg-primary">Số lượng</th>
+				<th class="th-title bg-primary">Giá 1 sản phẩm</th>
+				<th class="th-title bg-primary">Thành tiền</th>
+				<th class="th-title bg-primary">Lựa chọn</th>
+			</tr>
+			
+			<tr th:each="item: ${billItemDTOs}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.productDTO.name}"></td>
+				<td th:text="${item.quantity}"></td>
+				<td th:text="${item.productDTO.price}"></td>
+				<td th:text="${item.unitPrice}"></td>
+				<td>
+					<a class="option-from-user" th:href="@{/addOne(id=${item.id})}">Thêm</a>
+					<a class="option-from-user" th:href="@{/removeOne(id=${item.id})}">Bớt</a>
+					<a class="option-from-user" th:href="@{/deleteItem(id=${item.id})}">Bỏ</a>
+				</td>
+			</tr>
+			
+		</table>
+		<h3>Tổng cộng: <span th:text=" ${billDTO.totalPrice}"></span>00 VNĐ</h3>
+		
+		<button>
+			<a th:href="@{/payment(idBill=${billDTO.id})}">Tiến hành thanh toán</a>
+		</button>
+		
+		<button>
+			<a th:href="@{/home}">Về trang mua hàng</a>
+		</button>
+		
+	</div>
+</body>
+</html>

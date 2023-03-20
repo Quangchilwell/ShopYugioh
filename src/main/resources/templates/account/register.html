@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Dang ki tai khoan moi</title>
+	<link rel="stylesheet" th:href="@{/css/form.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container main">
+		<form th:action="@{/home/register}" th:object="${user}" method="post" class="form" id="form-add-user">
+			<h3 class="heading">Đăng kí tài khoản để mua hàng bạn nhé</h3>
+	        <div class="spacer"></div>
+	        
+	        <p style="color: red;" th:if="${error} != null">Tài khoản đã tồn tại</p>
+	        
+	         <div class="form-group">
+				<label for="fullname" class="form-label">Tên đầy đủ</label>
+				<input id="fullname" type="text" th:field="*{name}" placeholder="Nhập tên đầy đủ" class="form-control">
+				<span class="form-message"></span>        
+	        </div>
+	        
+	        <div class="form-group">
+				<label for="phone" class="form-label">Số điện thoại</label>
+				<input id="phone" type="text" th:field="*{phone}" placeholder="SĐT để giúp bạn lấy lại tài khoản khi quên mật khẩu" class="form-control">
+				<span class="form-message"></span>        
+	        </div>
+			
+	        <div class="form-group">
+				 <label for="username" class="form-label">Tài khoản</label>
+				<input id="username" type="text" th:field="*{username}" placeholder="Nhập tài khoản" class="form-control">   
+				<span class="form-message"></span>     
+	        </div>
+	        
+	        <div class="form-group">
+				<label for="password" class="form-label">Mật khẩu</label>
+				<input id="password" type="text" th:field="*{password}" placeholder="Mật khẩu" class="form-control"> 
+				<span class="form-message"></span>       
+	        </div>
+	        
+	       <div class="form-group">
+		        <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+		        <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+		        <span class="form-message"></span>
+       		</div>
+			
+			<div class="form-group">
+			<label for="gender" class="form-label">Giới tính</label>
+				<div class="select-gender">
+					<input type="radio" th:field="*{gender}" value="Nam" class="form-control form-radio" checked/>Nam
+					<input type="radio" th:field="*{gender}" value="Nữ" class="form-control form-radio"/>Nữ
+					<input type="radio" th:field="*{gender}" value="Khác" class="form-control form-radio"/>Khác		
+				</div>			
+			</div>
+			
+			<button type="submit" class="form-submit">Đăng kí</button>
+			
+			<button type="submit" class="form-submit">
+				<a href="/login">Đăng nhập</a>
+			</button>
+		</form>
+		
+		<script th:src="@{/js/validation/userValidation.js}"></script>
+	</div>
+</body>
+</html>

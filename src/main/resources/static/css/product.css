@@ -1,0 +1,340 @@
+html {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.app{
+    background-color: #f0f0f0;
+}
+
+.product{
+    padding-top: 30px;
+    background-color: #fff;
+}
+
+.product-img-total{
+    width: 100%;
+    border-radius: 3px;
+}
+
+.img-product-represent{
+    width: 100%;
+    /* width: 250px; */
+}
+
+.img-product-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.img-product-item{
+    width: 140px;
+}
+
+.product-infor{
+
+}
+
+.product-name{
+    font-size: 25px;
+    color: black;
+    font-weight: 500;
+}
+
+.product-evaluation{
+    display: flex;
+    font-size: 15px;
+}
+
+.product-star-icon{
+    /* color: rgba(255, 251, 0, 0.329); */
+}
+
+.product-quantity-comment{
+
+}
+
+.product-infor-details p{
+    font-size: 16px;
+    color: black;
+}
+
+.product-infor-price-old{
+    text-decoration: line-through;
+}
+
+.product-infor-price .product-infor-price-new{
+    font-size: 22px;
+    color: #8a774d;
+    font-weight: 550;
+}
+
+.product-buy{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.product-buy-title{
+    display: block;
+    font-size: 15px;
+    margin: 0;
+    margin-right: 8px;
+}
+
+.product-buy-form{
+
+}
+
+.product-buy-quantity-input{
+    width: 80px;
+    height: 40px;
+    border-radius: 10%;
+    text-align: center;
+    border: 1px solid ;
+    font-size: 16px;
+    
+}
+
+.product-buy-btn{
+    margin-left: 10px;
+    background-color: #8090a0;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border: 1px solid;
+}
+
+.product-buy-btn:hover{
+    background-color: #8a774d;
+}
+
+.product-buy-option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-buy-option-favorite{
+    margin-right: 10px;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: 1px solid;
+    background-color: rgba(255, 0, 0, 0.705);
+}
+
+.product-buy-option-compare{
+    color: black;
+    width: 100px;
+    height: 40px;
+    border: 0px solid;
+    background-color: chartreuse;
+}
+
+.product-buy-option-favorite, .product-buy-option-compare:hover{
+    opacity: 0.8;
+}
+
+
+.product-infor{
+    background-color: #fff;
+    padding: 16px 0;
+    margin: 20px 0;
+}
+
+.product-infor-wrap{
+    width: 50%;
+    margin: auto;
+}
+
+.product-infor-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    background-color: #8a774d;
+    color: #fff;
+    margin-right: 10px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.product-infor-btn:hover{
+    text-decoration: none;
+    background-color: #f0f0f0;
+    color: #8a774d;
+    border: 1px solid;
+    border-color: #8a774d;
+}
+
+.product-infor-description{
+    margin-left: 28px;
+    width: 70%;
+}
+
+.product-infor-description-name{
+    display: block;
+    width: 700px;
+    font-size: 30px;
+    font-weight: 500;
+    color: black;
+    font-style: italic;
+}
+
+.product-infor-description-notice{
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+
+.product-infor-description-content{
+    display: block;
+    width: 700px;
+    font-size: 16px;
+    color: black;
+}
+
+
+.product-infor-evaluation{
+    margin-top: 10px;
+    margin-left: 28px;
+}
+
+.product-infor-evaluation-heading{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.product-infor-evaluation-title{
+    font-size: 30px;
+}
+
+.product-infor-evaluation-notice{
+    font-size: 15px;
+}
+
+.product-infor-evaluation-notice{
+    font-size: 15px;
+    font-style: italic;
+}
+
+.product-infor-evaluation-quantity{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.product-infor-evaluation-comment{
+    display: flex;
+}
+
+.user-comment-img{
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+ }
+
+.product-infor-evaluation-comment-form{
+    width: 100%;
+}
+
+.product-infor-evaluation-comment-input{
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding-left: 8px;
+    margin-bottom: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+.btn-comment{
+    width: 80px;
+    height: 30px;
+    background-color: #8a774d;
+    color: white;
+    border: none;
+}
+
+.btn-comment:hover{
+    opacity: 0.9;
+}
+
+/* Binh luan */
+.customer-comment{
+    margin-top: 15px;
+    background-color: white;
+}
+
+.customer-comment-heading{
+    font-size: 28px;
+    font-weight: 500;
+
+}
+
+.customer-comment-list{
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.customer-comment-item{
+    display: flex;
+    align-items: center;
+    margin: 18px;
+}
+
+.customer-comment-infor{
+	width: 15%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.customer-comment-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.customer-comment-username{
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.customer-comment-content{
+    padding-top: 16px;
+    margin-left: 100px;
+}
+
+.customer-comment-content p{
+    font-size: 15px;
+    color: black;
+}
+
+.customer-comment-content a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border: 1px solid;
+    border-color: #8a774d;
+    width: 70px;
+    height: 30px;
+}
+
+.customer-comment-content a:hover{
+    background-color: rgb(11, 116, 229);
+    border: none;
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thong tin nguoi dung</h1>
+	<table>
+		<tr>
+			<th>Mã ID</th>
+			<td th:text="${user.id}"></td>
+		</tr>
+		
+		<tr>
+			<th>Họ tên</th>
+			<td th:text="${user.name}"></td>
+		</tr>
+		
+		<tr>
+			<th>Giới tính</th>
+			<td th:text="${user.gender}"></td>
+		</tr>
+		
+		<tr>
+			<th>Số điện thoại</th>
+			<td th:text="${user.phone}"></td>
+		</tr>
+		
+		<tr>
+			<th>Tài khoản</th>
+			<td th:text="${user.username}"></td>
+		</tr>
+		
+		<tr>
+			<th>Mật khẩu</th>
+			<td th:text="${user.password}"></td>
+		</tr>
+		
+		<tr>
+			<th>Vai trò</th>
+			<td th:text="${user.role}"></td>
+		</tr>
+		
+		<tr>
+			<th>Ảnh đại diện</th>
+			<img style="width: 40px;" alt="" th:src="@{/img/avatarUser/__${user.avatar}__}">
+		</tr>
+	</table>
+</body>
+</html>

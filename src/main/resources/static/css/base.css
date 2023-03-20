@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+*{
+    box-sizing: inherit;
+}
+:root{
+    --text-color:#333;
+    --main-color : #8a774d;
+    --header-height : 100px;
+   
+}
+html{
+    /*16px*/
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+}
+.grid{
+    width: 1260px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.grid_row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+}
+.grid_colomn-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.667%;
+}
+.grid_colomn-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3333%;
+}
+.grid_colomn-2-4{
+    display: flex;
+    padding: 0 5px;
+    width: 25%;
+}

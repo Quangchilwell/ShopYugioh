@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Quan li trang ban hang</title>
+</head>
+<body>
+	<div class="manager container-fluid" th:fragment="headerAdmin">
+		<ul class="manager-list">
+			<li class="manager-item"><a class="manager-item-link"
+				href="/home">Trang bán hàng</a></li>
+			<li class="manager-item"><a class="manager-item-link"
+				th:href="@{/admin/userList}">Quản lí người dùng</a></li>
+			<li class="manager-item"><a class="manager-item-link"
+				th:href="@{/admin/categoryList}">Quản lí danh mục</a></li>
+			<li class="manager-item"><a class="manager-item-link"
+				th:href="@{/admin/productList}">Quản lí sản phẩm</a></li>
+			<li class="manager-item"><a class="manager-item-link"
+				th:href="@{/admin/billList}">Quản lí đơn hàng</a></li>
+			<li class="manager-item manager-item-order">
+				<a class="manager-item-link" th:href="@{/admin/orderList}">Quản lí đơn đặt hàng</a>
+				<div th:if="${orderQuantity} != 0" class="manager-item-order-quantity">
+					<p th:text="${orderQuantity}"></p>
+				</div>	
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

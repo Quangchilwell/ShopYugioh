@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/admin.css}">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+	<div th:replace="common/headerAdmin:: headerAdmin"></div>
+
+	<div class="container">
+		<div class="table-title">
+			<h1>Quan li gio hang</h1>
+		</div>
+
+		<table  class="table table-bordered">
+			<tr>
+				<th class="th-title bg-primary">Mã hóa đơn</th>
+				<th class="th-title bg-primary">Ngày lập</th>
+				<th class="th-title bg-primary">Tổng giá tiền</th>
+				<th class="th-title bg-primary">Người mua</th>
+				<th class="th-title bg-primary">Lựa chọn</th>
+			</tr>
+
+			<tr th:each="bill: ${billDTOs}">
+				<td class="info" th:text="${bill.id}"></td>
+				<td class="info" th:text="${bill.billDate}"></td>
+				<td class="info" th:text="${bill.totalPrice}"></td>
+				<td class="info" th:text="${bill.user.name}"></td>
+				<td class="info"><a th:href="@{/admin/updateBill}">Sửa</a> | <a
+					th:href="@{/admin/deleteBill}">Xóa</a></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

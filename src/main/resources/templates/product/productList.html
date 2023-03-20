@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="@{/css/list.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+	<div th:replace="common/headerAdmin:: headerAdmin"></div>
+	
+	<div class="container">
+        <div class="table-title">
+            <h1>Quản lí sản phẩm</h1>
+        </div>
+        
+		<table class="table table-bordered">
+			<tr>
+				<th class="th-title bg-primary">Mã SP</th>
+				<th class="th-title bg-primary">Tên SP</th>
+				<th class="th-title bg-primary">Giá tiền</th>
+				<th class="th-title bg-primary">Loại danh mục</th>
+				<th class="th-title bg-primary">Số lượng hiện có</th>
+				<th class="th-title bg-primary">Lựa chọn</th>
+			</tr>
+			
+			<tr th:each="pro: ${productDTOs}">
+				<td class="info" th:text="${pro.id}"></td>
+				<td class="info" th:text="${pro.name}"></td>
+				<td class="info" th:text="${pro.price}"></td>
+				<td class="info" th:text="${pro.categoryDTO.name}"></td>
+				<td class="info" th:text="${pro.quantity}"></td>
+				<td class="info">
+					<a class="option-from-user" th:href="@{/admin/updateProduct/__${pro.id}__}">Sửa</a>
+					<a class="option-from-user" th:href="@{/admin/deleteProduct/__${pro.id}__}">Xóa</a>
+					<a class="option-from-user" th:href="@{/admin/inforProduct/__${pro.id}__}">Thông tin</a>
+				</td>
+			</tr>
+		</table>
+		
+		<button>
+			<a th:href="@{/admin/addProduct}">Thêm mới</a>
+		</button>
+		
+		<button>
+			<a th:href="@{/home}">Về trang bán hàng</a>
+		</button>
+     </div>
+
+</body>
+</html>

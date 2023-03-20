@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Xac nhan xoa ?</h1>
+	
+	<h2>Ban co chac muon xoa nguoi dung 
+		<span th:text="${user.name}"></span> voi ma
+		<span th:text="${user.id}"></span>
+	</h2>
+	
+	<button>
+		<a th:href="@{/admin/deleteUserSuccess(id=${user.id})}">Co</a>
+	</button>
+	
+	<button>
+		<a th:href="@{/admin/userList}">Khong</a>
+	</button>
+</body>
+</html>

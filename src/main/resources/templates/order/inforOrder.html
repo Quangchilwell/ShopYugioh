@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Chi tiet don dat hang</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h2>Thông tin đơn đặt hàng</h2>
+		
+		<table>
+			<tr>
+				<th>Mã đơn đặt hàng</th>
+				<td th:text="${order.id}"></td>
+			</tr>
+			
+			<tr>
+				<th>Ngày đặt hàng</th>
+				<td th:text="${order.dateOrder}"></td>
+			</tr>
+			
+			<tr>
+				<th>Người đặt hàng</th>
+				<td th:text="${order.userDTO.name}"></td>
+			</tr>
+			
+			<tr>
+				<th>Số điện thoại</th>
+				<td th:text="${order.userDTO.phone}"></td>
+			</tr>
+			
+			<tr>
+				<th>Địa chỉ nhận hàng</th>
+				<td th:text="${order.address}"></td>
+			</tr>
+			
+			<tr>
+				<th>Tình trạng đơn hàng</th>
+				<td th:text="${order.status}"></td>
+			</tr>
+			
+			<tr>
+				<th>Tổng tiền thanh toán</th>
+				<td> <span th:text="${order.totalPrice}"></span>00 VNĐ </td> 
+			</tr>
+		</table>
+		
+		<p>-------------------------------------------------------</p>
+		
+		<h3>Các sản phẩm trong đơn đặt</h3>
+		<table class="table table-bordered">
+				<tr>
+					<th class="th-title bg-primary">Mã vật phẩm</th>
+					<th class="th-title bg-primary">Tên sản phẩm</th>
+					<th class="th-title bg-primary">Số lượng</th>
+					<th class="th-title bg-primary">Giá 1 sản phẩm</th>
+					<th class="th-title bg-primary">Thành tiền</th>
+				</tr>
+				
+				<tr th:each="item: ${orderItemDTOs}">
+					<td th:text="${item.id}"></td>
+					<td th:text="${item.productDTO.name}"></td>
+					<td th:text="${item.quantity}"></td>
+					<td> <span th:text="${item.productDTO.price}"></span>00 VNĐ </td>
+					<td> <span th:text="${item.unitPrice}"></span>00 VNĐ </td>
+				</tr>
+				
+			</table>
+		
+		<button>
+			<a th:href="@{/admin/orderList}">Quay lại </a>
+		</button>
+	
+	</div>
+</body>
+</html>

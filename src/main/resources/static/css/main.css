@@ -1,0 +1,375 @@
+@charset "UTF-8";
+
+#header{
+    color: rgba(0, 0, 0, 0);
+}
+.header-container{
+    
+    background-color: white;
+}
+.header-container-1{
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+}
+.header-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    height: var(--header-height);
+    background-color: var(--main-color);
+    padding: 20px 0;
+    
+}
+.header-logo-img{
+    width: 80px;
+}
+.header-navbar{
+    width: 60%;
+}
+.navbar-list{
+    width: 100%;
+    height: var(--header-height);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+}
+.navbar-item{
+    list-style: none;
+}
+.navbar-item-link{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+.navbar-item-link:hover{
+    color: var(--main-color);
+}
+
+
+.header-container-2{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-evenly;
+    /* margin-top: 16px; */
+}
+.header-login{
+    margin-right: 30px;
+}
+.header-login-link{
+    font-size: 1.6rem;
+    color: var(--main-color);
+    text-decoration: none;
+    font-weight: 400;
+}
+.header-login-title i{
+
+}
+
+.header-search{
+    display: flex;
+    width: 40%;
+}
+.header-search i{
+
+}
+.header-search-input-form{
+    display: flex;
+    width: 100%;
+}
+.header-search-input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid var(--main-color);
+    outline-color: #ccc;
+    padding-left: 10px;
+    color: var(--text-color);
+}
+.header-search-button{
+    width: 100px;
+    height: 30px;
+    background-color: var(--main-color);
+    border: none;
+    cursor: pointer;
+}
+.header-search-button-link{
+    color: white;
+    text-decoration: none;
+    
+}
+
+.header-search-button:hover{
+    opacity: 0.9;
+}
+.header-cart-link{
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 100px;
+    background-color: var(--main-color);
+    text-decoration: none;
+}
+
+.header-cart{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.header-cart-content-wrap{
+    display: flex;
+    
+}
+.header-cart-content{
+    margin-left: 10px;
+    color: white;
+    font-size: 1.2rem;
+}
+.header-cart-icon{
+    color: white;
+    font-size: 1.4rem;
+}
+
+/* Cart Product */
+.cart-product{
+    position: absolute;
+    top: 104px;
+    background-color: white;
+    color: var(--main-color);
+    padding: 6px 10px 6px 5px;
+    width: 400px;
+    z-index: 3;
+    border-radius: 3px;
+    box-shadow: 3px 2px white;
+    display: none;
+}
+.cart-product.open{
+    display: block;
+}
+.cart-product-infor{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 0.4px solid var(--main-color);
+}
+.cart-product-infor-img{
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+.cart-product-infor-name{
+    margin: 0 5px;
+    width: 220px;
+    display: block;
+}
+.cart-product-infor-quantity{
+    margin: 0 5px;
+    display: block;
+}
+.cart-product-infor-price{
+    margin: 0 5px;
+    display: block;
+}
+.cart-product-price{
+    margin-left: 20%;
+}
+
+.cart-product-price-table-row{
+    display: block;
+}
+.cart-product-price-table-row:nth-child(1){
+    margin-bottom: 15px;
+}
+.cart-product-price-table-row td{
+    font-size: 1.6rem;
+    font-weight: 400;    
+}
+.cart-product-go{
+    margin-top: 16px;
+}
+.cart-product-go-button{
+    width: 100px;
+    height: 34px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--main-color);
+    margin-right: 8px;
+    float: right;
+}
+.cart-product-go-link{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+}
+.cart-product-go-button:hover{
+    opacity: 0.8;
+}
+
+.header-user{
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+   
+}
+.header-user-img{
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.header-user-title{
+    color: var(--main-color);
+    font-size: 1.6rem;
+    margin-right: 8px;
+}
+.header-user-name{
+    color: var(--main-color);
+    font-size: 1.6rem;
+}
+.header-user-select-list{
+    position: absolute;
+    top: 50%;
+    background-color: var(--main-color);
+    padding: 6px 5px;
+    margin-left: 25%;
+    z-index: 4;
+    border-radius: 3px;
+    display: none;
+}
+.header-user-select-item{
+    margin-bottom: 7px;
+}
+.header-user-select-item:hover{
+    opacity: 0.9;
+}
+.header-user-select-item:last-child{
+    margin-left: 0;
+}
+.header-user-select-item-link{
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+.header-user:hover .header-user-select-list{
+    display: block;
+}
+.header-cart-quanPro{
+
+}
+.header-cart-price{
+
+}
+
+/* Slider */
+#slider{
+    position: relative;
+    margin-top: 0px;
+    padding-top: 50%;
+    background: url("https://cdn.akamai.steamstatic.com/steam/apps/1449850/capsule_616x353.jpg?t=1647220919") top center / cover no-repeat;
+}
+
+/*  body */
+.yugioh-container{
+    margin-top: 30px;
+}
+.category{
+    
+}
+.category-header{
+    display: flex;
+    align-items: center;
+    background-color: var(--main-color);
+    color: white;
+}
+.category-header-icon{
+    font-size: 1.7rem;
+    padding: 0 10px;
+    border-right: 2px solid white;
+}
+.category-header-name{
+    font-size: 1.7rem;
+    margin-left: 10px;
+}
+.category-select{
+
+}
+.category-select-list{
+    list-style: none;
+    padding: 10px 0 10px 10px;
+}
+.category-select-item{
+    margin-bottom: 10px;
+}
+.category-select-item-link{
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+.product{
+    margin-left: 20px;
+}
+.product-header{
+   margin-top: -14px;
+}
+.product-header-title{
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--main-color);
+}
+.product-body{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    margin: 0 20px 10px 0;
+    
+}
+.product-body-name{
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+.product-body-img{
+    width: 187px;
+    height: 187px;
+}
+.product-body-price{
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+.product-body-appri{
+
+}
+.product-body-appri-icon{
+    color: #ccc;
+}
+
+/* Nut mua */
+.product-body-buy{
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+.product-body-buy-button{
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    width: 100px;
+    height: 24px;
+}
+.product-body-buy-button:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}

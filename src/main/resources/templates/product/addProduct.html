@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" th:href="@{/css/form.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+	
+<body>
+	<div class="container main">
+		<form id="form-product" th:action="@{/admin/addProduct}" th:object="${product}" method="post" enctype="multipart/form-data" class="form">
+			<h3 class="heading">Thêm mới sản phẩm</h3>
+        	<div class="spacer"></div>
+        	
+			 <div class="form-group">
+	          <label for="name" class="form-label">Tên sản phẩm</label>
+	          <input type="text" th:field="*{name}" placeholder="VD: Tivi" class="form-control"/>
+	          <span class="form-message"></span>
+	        </div>
+			
+			 <div class="form-group">
+				<label for="idCate" class="form-label">Loại sản phẩm</label>
+				<select th:field="*{idCate}">
+					<option th:each="cate: ${categories}" class="form-control" th:text="${cate.name}" th:value="${cate.idCate}">
+					</option>
+				</select>		 
+			 </div>
+			
+			<div class="form-group">
+				<label for="price" class="form-label">Giá bán</label>
+				<input type="text" th:field="*{price}" placeholder="VD: 200000 VNĐ" class="form-control" />
+				<span class="form-message"></span>				 
+			</div>
+			
+			<div class="form-group">
+				<label for="quantity" class="form-label">Số lượng</label>
+				<input id="quantity" type="text" th:field="*{quantity}" placeholder="VD: 10" class="form-control" />	
+				<span class="form-message"></span>		
+			</div>
+			
+			<div class="form-group">
+				<label for="quantity" class="form-label">Mô tả</label>
+				<textarea th:field="*{description}" rows="10" cols="30" class="form-control"></textarea>		
+			</div>
+			
+			<div class="form-group">
+				<label for="quantity" class="form-label">Hình ảnh</label>
+				<input type="file" th:field="*{file}" class="form-control"/>		
+			</div>
+			
+			<button type="submit" class="form-submit">Thêm mới</button>
+		</form>
+		
+	
+	</div>
+	<script th:src="@{/js/validation/productValidation.js}"></script>
+</body>
+</html>

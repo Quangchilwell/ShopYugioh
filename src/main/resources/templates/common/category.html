@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="grid_colomn-2" th:fragment="category">
+		<div class="category">
+			<div class="category-header">
+				<i class="category-header-icon fa-solid fa-bars"></i>
+				<p class="category-header-name">Danh mục</p>
+			</div>
+
+			<div class="category-select">
+				<ul class="category-select-list">
+					<li th:each="cate: ${categories}" class="category-select-item"><a
+						th:href="@{/home/category/__${cate.idCate}__}"
+						class="category-select-item-link" th:text="${cate.name}"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
